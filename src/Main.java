@@ -18,19 +18,10 @@ public class Main {
     personArray[4] = e;
 
 
-    LocalDate firstDate = LocalDate.parse("1980-01-01");
+
+  LocalDate firstDate = LocalDate.parse("1980-01-01");
 
     for (Person i : personArray) {
-      if (wasBornAfter(i, firstDate))
-      {
-        System.out.println(i.getName());
-      }
-    }
-  }
-  private static Boolean wasBornAfter(Person personArray, LocalDate firstDate) {
-    if (personArray.getDateOfBirth().isAfter(firstDate)) {
-      return true;
-    } else {
-      return false;
-    }
-  }}
+        if (WasBornAfter.wasBornAfter(i, firstDate)) {
+          System.out.println(i.getName());
+        }}}}

@@ -20,7 +20,7 @@ public class Person {
     return name;
   }
 
-  public void setName(String name) {
+  private void setName(String name) {
     this.name = name;
   }
 
@@ -28,7 +28,7 @@ public class Person {
     return dateOfBirth;
   }
 
-  public void setDateOfBirth(LocalDate dateOfBirth) {
+  private void setDateOfBirth(LocalDate dateOfBirth) {
     this.dateOfBirth = dateOfBirth;
   }
 
@@ -36,7 +36,7 @@ public class Person {
     return mobileNumber;
   }
 
-  public void setMobileNumber(String mobileNumber) {
+  private void setMobileNumber(String mobileNumber) {
     this.mobileNumber = mobileNumber;
   }
 
@@ -44,10 +44,9 @@ public class Person {
     return email;
   }
 
-  public void setEmail(String email) {
+  private void setEmail(String email) {
     this.email = email;
   }
-
 
   public String toString() {
     return "Name: " + this.name + ".\n"
