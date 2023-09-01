@@ -17,9 +17,20 @@ public class Main {
     personArray[3] = d;
     personArray[4] = e;
 
-    for (int i = 0; i < personArray.length; i++) {
-      System.out.println(personArray[i]);
-    }
 
+    LocalDate firstDate = LocalDate.parse("1980-01-01");
+
+    for (Person i : personArray) {
+      if (wasBornAfter(i, firstDate))
+      {
+        System.out.println(i.getName());
+      }
+    }
   }
-}
+  private static Boolean wasBornAfter(Person personArray, LocalDate firstDate) {
+    if (personArray.getDateOfBirth().isAfter(firstDate)) {
+      return true;
+    } else {
+      return false;
+    }
+  }}
