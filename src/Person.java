@@ -28,7 +28,7 @@ public class Person {
     return dateOfBirth;
   }
 
-  private void setDateOfBirth(LocalDate dateOfBirth) {
+  public void setDateOfBirth(LocalDate dateOfBirth) {
     this.dateOfBirth = dateOfBirth;
   }
 
