@@ -21,24 +21,13 @@ class WasBornAfterTest {
 
     LocalDate firstDate = LocalDate.parse("1980-01-01");
 
-    for (Person i : personList) {
-      System.out.println("Person " + i.getName() + " was born after " + firstDate + " is: " +WasBornAfter.wasBornAfter(i, firstDate));
-    }
-
 
     //then
-    assertTrue(WasBornAfter.wasBornAfter(b, firstDate));
-    assertTrue(WasBornAfter.wasBornAfter(c, firstDate));
-    assertTrue(WasBornAfter.wasBornAfter(e, firstDate));
+    for(Person i : personList) {
+      assertTrue(WasBornAfter.wasBornAfter(i, firstDate));
 
+    }
 
-  }
-
-  private Person getPerson(String name) {
-    LocalDate dateOfBirth = LocalDate.parse("1980-01-01");
-    String mobile = "077770123456";
-    String email = name + "@test.com";
-    return new Person(name, dateOfBirth, mobile, email);
   }
 
   private Person getPerson(String name, String dob) {
@@ -60,27 +49,22 @@ class WasBornAfterTest {
 
       LocalDate firstDate = LocalDate.parse("1980-01-01");
 
-      for (Person i : personList) {
-        System.out.println("Person " + i.getName() + " was born after " + firstDate + " is: " +WasBornAfter.wasBornAfter(i, firstDate));
-      }
-
 
       //then
-      assertFalse(WasBornAfter.wasBornAfter(a, firstDate));
-      assertFalse(WasBornAfter.wasBornAfter(d, firstDate));
-
-
+      for (Person i : personList) {
+        assertFalse(WasBornAfter.wasBornAfter(i, firstDate));
+      }
     }
 
   @Test
   void should_ReturnTrue_When_PersonDateOfBirth_IsEqualTo() {
 
     //given (some data that is the required setup for a test run)
-    Person a = getPerson("John");
-    Person b = getPerson("Jane");
-    Person c = getPerson("Harry");
-    Person d = getPerson("Anne");
-    Person e = getPerson("Jack");
+    Person a = getPerson("John", "1969-03-15");
+    Person b = getPerson("Jane", "1998-04-09");
+    Person c = getPerson("Harry","1980-09-25");
+    Person d = getPerson("Anne", "1969-08-20");
+    Person e = getPerson("Jack", "1996-08-20");
 
 
     // When (we run some code with the given data)
@@ -91,20 +75,25 @@ class WasBornAfterTest {
     personArray[3] = d;
     personArray[4] = e;
 
-    a.setDateOfBirth(LocalDate.parse("1979-01-01"));
-    b.setDateOfBirth(LocalDate.parse("1979-01-01"));
-    c.setDateOfBirth(LocalDate.parse("1979-01-01"));
-    d.setDateOfBirth(LocalDate.parse("1979-01-01"));
-    e.setDateOfBirth(LocalDate.parse("1979-01-01"));
+    LocalDate PersonA = LocalDate.parse("1969-03-15");
+    LocalDate PersonB = LocalDate.parse("1998-04-09");
+    LocalDate PersonC = LocalDate.parse("1980-09-25");
+    LocalDate PersonD = LocalDate.parse("1969-08-20");
+    LocalDate PersonE = LocalDate.parse("1996-08-20");
 
 
     //then (assert that results are as expected)
     assertThat(personArray).contains(a,b,c,d,e);
-    assertThat(personArray[0].getDateOfBirth()).isEqualTo(LocalDate.parse("1979-01-01"));
-    assertThat(personArray[1].getDateOfBirth()).isEqualTo(LocalDate.parse("1979-01-01"));
+
+    assertThat(personArray[0].getDateOfBirth()).isEqualTo(PersonA);
+    assertThat(personArray[1].getDateOfBirth()).isEqualTo(PersonB);
+    assertThat(personArray[2].getDateOfBirth()).isEqualTo(PersonC);
+    assertThat(personArray[3].getDateOfBirth()).isEqualTo(PersonD);
+    assertThat(personArray[4].getDateOfBirth()).isEqualTo(PersonE);
 
 
   }}
+
 
 
 
