@@ -1,4 +1,5 @@
 import java.time.LocalDate;
+import java.util.List;
 
 public class Main {
 
@@ -10,19 +11,12 @@ public class Main {
     Person d = new Person("Anne", LocalDate.parse("1969-03-15"), "+447220012222", "anne@gmail.com");
     Person e = new Person("Jack", LocalDate.parse("1996-08-20"), "+447220012098", "jack@gmail.com");
 
-
-    Person[] personArray = new Person[5];
-    personArray[0] = a;
-    personArray[1] = b;
-    personArray[2] = c;
-    personArray[3] = d;
-    personArray[4] = e;
-
+    List <Person> people = List.of(a,b,c,d,e);
 
 
   LocalDate firstDate = LocalDate.parse("1980-01-01");
 
-   for (Person i : personArray) {
+   for (Person i : people) {
      if (WasBornAfter.wasBornAfter(i, firstDate)) {
       System.out.println(i.getName());
      }}}}
