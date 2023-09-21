@@ -3,7 +3,7 @@ import java.time.LocalDate;
 public class WasBornAfter {
 
 
-  static Boolean wasBornAfter(Person personArray, LocalDate firstDate) {
-    return personArray.getDateOfBirth().isAfter(firstDate);
+  static Boolean wasBornAfter(Person people, LocalDate firstDate) {
+    return people.getDateOfBirth().isAfter(firstDate);
   }
 }

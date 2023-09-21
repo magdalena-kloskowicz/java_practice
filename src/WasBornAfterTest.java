@@ -12,22 +12,20 @@ class WasBornAfterTest {
   void should_ReturnTrue_When_Person_WasBornAfter() {
 
     //given
-    Person b = getPerson("Jane", "1998-04-09");
-    Person c = getPerson("Harry", "1980-09-25");
-    Person e = getPerson("Jack", "1996-08-20");
+    List<Person> personList = List.of(
+        getPerson("Jane", "1998-04-09"),
+        getPerson("Harry", "1980-09-25"),
+        getPerson("Jack", "1996-08-20")
+    );
 
-
-    List<Person> personList = List.of(b, c, e);
 
     LocalDate firstDate = LocalDate.parse("1980-01-01");
 
 
     //then
-    for(Person i : personList) {
+    for (Person i : personList) {
       assertTrue(WasBornAfter.wasBornAfter(i, firstDate));
-
     }
-
   }
 
   private Person getPerson(String name, String dob) {
@@ -37,18 +35,17 @@ class WasBornAfterTest {
     return new Person(name, dateOfBirth, mobile, email);
   }
 
+
     @Test
     void should_ReturnFalse_When_Person_WasBornAfter() {
       //given
-      Person a = getPerson("John", "1969-03-15");
-      Person d = getPerson("Anne", "1969-08-20");
+      List<Person> personList = List.of(
+          getPerson("John", "1969-03-15"),
+          getPerson("Anne", "1969-08-20")
+      );
 
-
-
-      List<Person> personList = List.of(a,d);
 
       LocalDate firstDate = LocalDate.parse("1980-01-01");
-
 
       //then
       for (Person i : personList) {
@@ -90,8 +87,6 @@ class WasBornAfterTest {
     assertThat(personArray[2].getDateOfBirth()).isEqualTo(PersonC);
     assertThat(personArray[3].getDateOfBirth()).isEqualTo(PersonD);
     assertThat(personArray[4].getDateOfBirth()).isEqualTo(PersonE);
-
-
   }}
 
 
