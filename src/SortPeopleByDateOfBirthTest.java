@@ -1,13 +1,16 @@
+import static org.junit.jupiter.api.Assertions.*;
+
 import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
 import java.util.List;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.function.Executable;
 
-public class Main {
+class SortPeopleByDateOfBirthTest {
+  @Test
+  void should_ReturnPeopleSortedByDateOfBirth_When_SortPeopleByDateOfBirth() {
 
-  public static void main(String[] args) {
-
+    //given
     List<Person> people = new ArrayList<>();
     people.add(new Person("John", LocalDate.parse("1969-03-15"), "+447984356766", "john@gmail.com"));
     people.add(new Person("Jane", LocalDate.parse("1998-04-09"), "+447220512328", "jane@gmail.com"));
@@ -15,25 +18,12 @@ public class Main {
     people.add(new Person("Anne", LocalDate.parse("1978-01-12"), "+447220012222", "anne@gmail.com"));
     people.add(new Person("Jack", LocalDate.parse("1996-08-20"), "+447220012098", "jack@gmail.com"));
 
-    LocalDate firstDate = LocalDate.parse("1980-01-01");
+    //when
 
-    for (Person i : people) {
-      if (WasBornAfter.wasBornAfter(i, firstDate)) {
-        System.out.println(i.getName());
-      }
-    }
-
-   SortPeopleByDateOfBirth.sortPeopleByDateOfBirth(people);
-
-    for (Person person : people) {
-      System.out.println(person.getName() + " " + person.getDateOfBirth());
-    }
-  }
+  SortPeopleByDateOfBirth.sortPeopleByDateOfBirth(people);
+    //then
 }
 
-
-
-
-
+  }
 
 
