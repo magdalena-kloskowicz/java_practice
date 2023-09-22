@@ -1,7 +1,10 @@
 import static org.junit.jupiter.api.Assertions.*;
+import static org.assertj.core.api.Assertions.assertThat;
+
 
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.function.Executable;
@@ -20,10 +23,13 @@ class SortPeopleByDateOfBirthTest {
 
     //when
 
-  SortPeopleByDateOfBirth.sortPeopleByDateOfBirth(people);
+    List<Person> sortedList = SortPeopleByDateOfBirth.sortPeopleByDateOfBirth(people);
+
     //then
+    assertThat(sortedList).isEqualTo(people);
+
 }
 
-  }
+}
 
 
