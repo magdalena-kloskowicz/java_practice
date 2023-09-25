@@ -23,12 +23,22 @@ class SortPeopleByDateOfBirthTest {
 
     //when
 
+    List<String> expected = new ArrayList<>();
+            expected.add( "1969-03-15");
+            expected.add( "1978-01-12");
+            expected.add( "1980-09-25");
+            expected.add( "1996-08-20");
+            expected.add( "1998-04-09");
+
     List<Person> sortedList = SortPeopleByDateOfBirth.sortPeopleByDateOfBirth(people);
 
-    //then
-    assertThat(sortedList).isEqualTo(people);
+    // then
+     for (int i = 0; i < sortedList.size(); i++) {
+       String expectedDateOfBirth = expected.get(i);
+       assertEquals(expectedDateOfBirth, sortedList);
+    }
 
-}
+    }
 
 }
 
