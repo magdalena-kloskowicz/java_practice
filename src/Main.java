@@ -28,17 +28,14 @@ public class Main {
         System.out.println(person.getName() + " " + person.getDateOfBirth());
  });
 
-sortPeopleInDescendingOrder(people);
+SortPeopleInDescendingOrder.sortPeopleInDescendingOrder(people);
 
     people.forEach(person -> {
       System.out.println(person.getName() + " " + person.getDateOfBirth());
     });
 
  }
-static List<Person> sortPeopleInDescendingOrder(List<Person> people) {
-  people.sort(Comparator.comparing(Person::getDateOfBirth).reversed());
-  return people;
-}
+
 }
 
 
