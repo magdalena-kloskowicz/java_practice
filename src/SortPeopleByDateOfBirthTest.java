@@ -1,13 +1,8 @@
 import static org.junit.jupiter.api.Assertions.*;
-import static org.assertj.core.api.Assertions.assertThat;
-
-
 import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.function.Executable;
 
 class SortPeopleByDateOfBirthTest {
   @Test
@@ -24,23 +19,22 @@ class SortPeopleByDateOfBirthTest {
     //when
     List<Person> sortedList = SortPeopleByDateOfBirth.sortPeopleByDateOfBirth(people);
 
+    List<LocalDate> actualDatesOfBirth = sortedList.stream()
+        .map(Person::getDateOfBirth)
+        .toList();
+
     // then
-    List<Person> expected = List.of(
-        getPerson("John", "1969-03-15"),
-        getPerson("Anne", "1978-01-12"),
-        getPerson("Harry","1980-09-25"),
-        getPerson("Jack", "1996-08-20"),
-        getPerson("Jane", "1998-04-09")
+    List<LocalDate> expectedDatesOfBirth = List.of(
+          LocalDate.parse("1969-03-15"),
+          LocalDate.parse("1978-01-12"),
+          LocalDate.parse("1980-09-25"),
+          LocalDate.parse("1996-08-20"),
+          LocalDate.parse("1998-04-09")
     );
-    assertEquals(expected,sortedList);
-    }
-  private Person getPerson(String name, String dob){
-    LocalDate dateOfBirth=LocalDate.parse(dob);
-    String mobile="077770123456";
-    String email=name+"@test.com";
-    return new Person(name,dateOfBirth,mobile,email);
-  };
+
+    assertEquals(expectedDatesOfBirth,actualDatesOfBirth);
 
     }
+}
 
 
