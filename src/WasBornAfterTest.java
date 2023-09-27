@@ -41,7 +41,7 @@ class WasBornAfterTest {
       //given
       List<Person> personList = List.of(
           getPerson("John", "1969-03-15"),
-          getPerson("Anne", "1969-08-20")
+          getPerson("Anne", "1978-01-12")
       );
 
 
@@ -60,7 +60,7 @@ class WasBornAfterTest {
     Person a = getPerson("John", "1969-03-15");
     Person b = getPerson("Jane", "1998-04-09");
     Person c = getPerson("Harry","1980-09-25");
-    Person d = getPerson("Anne", "1969-08-20");
+    Person d = getPerson("Anne", "1978-01-12");
     Person e = getPerson("Jack", "1996-08-20");
 
 
@@ -75,7 +75,7 @@ class WasBornAfterTest {
     LocalDate PersonA = LocalDate.parse("1969-03-15");
     LocalDate PersonB = LocalDate.parse("1998-04-09");
     LocalDate PersonC = LocalDate.parse("1980-09-25");
-    LocalDate PersonD = LocalDate.parse("1969-08-20");
+    LocalDate PersonD = LocalDate.parse("1978-01-12");
     LocalDate PersonE = LocalDate.parse("1996-08-20");
 
 
