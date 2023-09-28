@@ -8,6 +8,10 @@ public class SortPeopleByDateOfBirth {
     people.sort(Comparator.comparing(Person::getDateOfBirth));
     return people;
   }
+  static List<Person> sortPeopleInDescendingOrder(List<Person> people) {
+    people.sort(Comparator.comparing(Person::getDateOfBirth).reversed());
+    return people;
+  }
 }
 
 

@@ -28,7 +28,7 @@ public class Main {
         System.out.println(person.getName() + " " + person.getDateOfBirth());
  });
 
-SortPeopleInDescendingOrder.sortPeopleInDescendingOrder(people);
+SortPeopleByDateOfBirth.sortPeopleInDescendingOrder(people);
 
     people.forEach(person -> {
       System.out.println(person.getName() + " " + person.getDateOfBirth());
