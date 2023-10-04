@@ -12,6 +12,15 @@ public class SortPeopleByDateOfBirth {
     people.sort(Comparator.comparing(Person::getDateOfBirth).reversed());
     return people;
   }
+
+  static void searchAndPrintPerson(List<Person> people, String email, String mobileNumber) {
+    for (Person person : people){
+      if (person.getEmail().equals(email) || person.getMobileNumber().equals(mobileNumber)){
+        System.out.println("Found person:\n"+ "Name: " + person.getName() + "\nDate of birth: " + person.getDateOfBirth());
+
+      }
+    }
+  }
 }
 
 
