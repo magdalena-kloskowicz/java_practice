@@ -33,6 +33,7 @@ public class Main {
     people.forEach(person -> {
       System.out.println(person.getName() + " " + person.getDateOfBirth());
     });
+
     SortPeopleByDateOfBirth.searchAndPrintPerson(people, "jack@example.com", "+447220012098");
  }
 

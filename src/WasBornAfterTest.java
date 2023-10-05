@@ -2,6 +2,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 import org.junit.jupiter.api.Test;
 import java.lang.String;
@@ -18,9 +19,7 @@ class WasBornAfterTest {
         getPerson("Jack", "1996-08-20")
     );
 
-
     LocalDate firstDate = LocalDate.parse("1980-01-01");
-
 
     //then
     for (Person i : personList) {
@@ -36,22 +35,21 @@ class WasBornAfterTest {
   }
 
 
-    @Test
-    void should_ReturnFalse_When_Person_WasBornAfter() {
-      //given
-      List<Person> personList = List.of(
-          getPerson("John", "1969-03-15"),
-          getPerson("Anne", "1978-01-12")
-      );
+  @Test
+  void should_ReturnFalse_When_Person_WasBornAfter() {
+    //given
+    List<Person> personList = List.of(
+        getPerson("John", "1969-03-15"),
+        getPerson("Anne", "1978-01-12")
+    );
 
+    LocalDate firstDate = LocalDate.parse("1980-01-01");
 
-      LocalDate firstDate = LocalDate.parse("1980-01-01");
-
-      //then
-      for (Person i : personList) {
-        assertFalse(WasBornAfter.wasBornAfter(i, firstDate));
-      }
+    //then
+    for (Person i : personList) {
+      assertFalse(WasBornAfter.wasBornAfter(i, firstDate));
     }
+  }
 
   @Test
   void should_ReturnTrue_When_PersonDateOfBirth_IsEqualTo() {
@@ -59,10 +57,9 @@ class WasBornAfterTest {
     //given (some data that is the required setup for a test run)
     Person a = getPerson("John", "1969-03-15");
     Person b = getPerson("Jane", "1998-04-09");
-    Person c = getPerson("Harry","1980-09-25");
+    Person c = getPerson("Harry", "1980-09-25");
     Person d = getPerson("Anne", "1978-01-12");
     Person e = getPerson("Jack", "1996-08-20");
-
 
     // When (we run some code with the given data)
     Person[] personArray = new Person[5];
@@ -78,17 +75,43 @@ class WasBornAfterTest {
     LocalDate PersonD = LocalDate.parse("1978-01-12");
     LocalDate PersonE = LocalDate.parse("1996-08-20");
 
-
     //then (assert that results are as expected)
-    assertThat(personArray).contains(a,b,c,d,e);
+    assertThat(personArray).contains(a, b, c, d, e);
 
     assertThat(personArray[0].getDateOfBirth()).isEqualTo(PersonA);
     assertThat(personArray[1].getDateOfBirth()).isEqualTo(PersonB);
     assertThat(personArray[2].getDateOfBirth()).isEqualTo(PersonC);
     assertThat(personArray[3].getDateOfBirth()).isEqualTo(PersonD);
     assertThat(personArray[4].getDateOfBirth()).isEqualTo(PersonE);
-  }}
+  }
 
+  @Test
+  void shouldReturnTrue_When_SearchAndPrintPerson(){
+    //given
+    List<Person> people = new ArrayList<>();
+    people.add(new Person("John", LocalDate.parse("1969-03-15"), "+447984356766", "john@example.com"));
+    people.add(new Person("Jane", LocalDate.parse("1998-04-09"), "+447220512328", "jane@example.com"));
+    people.add(new Person("Harry",LocalDate.parse("1980-09-25"), "+447220012555", "harry@example.com"));
+    people.add(new Person("Anne", LocalDate.parse("1978-01-12"), "+447220012222", "anne@example.com"));
+    people.add(new Person("Jack", LocalDate.parse("1996-08-20"), "+447220012098", "jack@example.com"));
+    //when, then
 
+    assertTrue(SortPeopleByDateOfBirth.searchAndPrintPerson(people, "jane@example.com", "+447220512328"));
 
+  }
 
+  @Test
+  void shouldReturnFalse_When_SearchAndPrintPerson(){
+    //given
+    List<Person> people = new ArrayList<>();
+    people.add(new Person("John", LocalDate.parse("1969-03-15"), "+447984356766", "john@example.com"));
+    people.add(new Person("Jane", LocalDate.parse("1998-04-09"), "+447220512328", "jane@example.com"));
+    people.add(new Person("Harry",LocalDate.parse("1980-09-25"), "+447220012555", "harry@example.com"));
+    people.add(new Person("Anne", LocalDate.parse("1978-01-12"), "+447220012222", "anne@example.com"));
+    people.add(new Person("Jack", LocalDate.parse("1996-08-20"), "+447220012098", "jack@example.com"));
+    //when, then
+
+    assertFalse(SortPeopleByDateOfBirth.searchAndPrintPerson(people, "joe@example.com", "+447720512328"));
+
+  }
+}
