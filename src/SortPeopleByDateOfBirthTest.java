@@ -82,9 +82,9 @@ class SortPeopleByDateOfBirthTest {
 
     assertTrue(SortPeopleByDateOfBirth.searchAndPrintPerson(people, "jane@example.com", "+447220512328"));
     assertTrue(SortPeopleByDateOfBirth.searchAndPrintPerson(people, "dom@example.com", "+447220012555"));
-
+    assertTrue(SortPeopleByDateOfBirth.searchAndPrintPerson(people, "anne@example.com", "+447220012000"));
   }
-  
+
   @Test
   void shouldReturnFalse_When_SearchAndPrintPerson() {
     //given
